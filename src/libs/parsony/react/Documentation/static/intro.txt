@@ -1,0 +1,95 @@
+Introduction.
+
+This API exposes two interfaces for every service method:
+
+JSON/RPC
+The JSON/RPC expands the range of verbs and actions that can be described
+via API. All requests are made to a single endpoint via HTTP POST, and the
+requested method is part of the request body.
+
+REST
+A more standard RESTful approach, each method also has it's own
+URL endpoint and requests are made using the corresponding HTTP method.
+
+The response to requests made to either interface are identical.
+
+Example:
+
+Consider a hypothetical method of a User service that logs a user into a system.
+
+Service: USER
+Method: login
+
+The standard RESTful approach allows a user to make a POST request to /user/auth
+
+POST https://my.api/user/auth
+Body:
+{
+    "username": "john.doe"
+    "password": ""*******"
+}
+
+
+The JSON/RPC approach requires the user to make all requests to the same endpoint
+Let's pretend the JSON/RPC endpoint is /json-rpc
+
+POST https://my.api/json-rpc
+Body:{
+    "method":"user.login"
+    "args" : {
+        "username": "john.doe"
+        "password": ""*******"
+    }
+}
+
+Why JSON/RPC?
+First, it's not a new idea. In fact, RPC dates back to 1967, when blah blah.
+
+1. Flexibility
+    Not everything is a CRUD app. Sometimes we need actions that are not
+    well described by the HTTP verbs GET, POST, PUT, or DELETE.
+    For example, say we have a method that sends a password reset code via email.
+    This is not a resource we are operating on, but an activity.
+    Maybe we would end up with POST my.api/user/auth/reset, but without documentation,
+    there is no way to be sure what this is doing.
+
+    With RPC all we have to do is call the sendPasswordResetCode method of user.
+
+    Because the method identifiers are strings, we can also create relatedness
+    and hierarchy through dot notation.
+
+    New we can express a suite of functionality:
+
+    user.auth.reset.sendCode.email
+    user.auth.reset.sendCode.sms
+
+    user.auth.reset.confirmCode
+    user.auth.reset
+
+    user.login
+
+    But couldn't we do that with REST Endpoints...? You could. But, then you aren't
+    using REST. You're doing RPC with URLS as method identifiers.
+
+2. Client-friendliness
+   Long urls with complex routs and query parameters are just ugly to construct,
+   On top of that, we also have to make sure we make the correct HTTP request.
+   With RPC all requests are send to the same URL with a single method. As
+   a client developer that means you only need to deal with HTTP at a single point.
+   Because of the standard request structure it's much easier to write an elegant
+   client-side library.
+
+3. Chain-ability
+    This one is in the works. When working with IOT, or mobile applications, network
+    latency is still a valid consideration. REST often requires a client to make
+    a sequence of requests to drill down to the object of interest. If the app
+    is highly interactive, there is lost efficiency and higher probability
+    of failure with increasing network traffic. Parsony allows a client developer
+    to chain|pipe or bundle requests.
+
+Request Body
+
+Whether using the RESTful endpoints or JSON/RPC, the API has some opinions about
+data structure.
+
+All request B

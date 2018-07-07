@@ -1,0 +1,249 @@
+$darkBlueBlack : #2d3336;
+$menuWidth : 230px;
+$rightWidth : calc(100% - 230px);
+$veryLightBlue: #f2f7f9;
+$darkBlueBlack : #2d3336;
+$almostBlack : #181e1f;
+$lightBlue: #0078cf;
+.loadingMessage{
+  text-align: center;
+  width: 100%;
+  margin-top:50%;
+}
+
+.sectionTitle{
+  padding-left:15px !important;
+}
+
+.serviceMethods{
+  margin-left: 20px !important;
+  .navItem{
+    padding:5px 0px 5px 45px !important;
+    margin-left: -20px !important;
+    transition: background 150ms, color 150ms;
+    &:hover{
+      color: $lightBlue !important;
+      &.activeLink{
+        color: black !important;
+      }
+    }
+  }
+  .activeLink{
+    background: $lightBlue;
+    color:black !important;
+  }
+}
+
+.endpointDescription{
+  .serviceHeader{
+    padding:20px;
+    background: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+  }
+  .serviceContent{
+    padding:20px;
+    .description{
+      margin-bottom: 40px;
+    }
+    table{
+      tbody{
+        background: white !important;
+      }
+
+    }
+  }
+}
+
+.header{
+  font-family: bt_mono,'Courier New',monospace;
+  .H{
+    color:white !important;
+    padding-right: 10px;
+  }
+  .key{
+    color: lightgreen !important;
+  }
+  .val {
+    color: orange !important;
+  }
+}
+.formattedTextString{
+  .filterHighlight{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+
+.serviceHeader{
+  background: white !important;
+  padding:20px;
+  border-bottom: 1px solid gray;
+}
+
+.tabsController{
+  background: $almostBlack;
+  width:100%;
+  height:30px;
+  top:0px;
+  padding-top: 0px;
+  ul{
+    height:30px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    li{
+      cursor: pointer;
+      float: left;
+      transition: background-color 200ms, color 200ms;
+      &.active{
+        color:white;
+        text-align: center;
+        background: $darkBlueBlack;
+      ;
+      }
+      .tab{
+        padding-top: 5px;
+        margin-right: 20px;
+        height: 30px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.content{
+  padding: 20px;
+  position: relative;
+  .codeSample, .responseSample, .errorSample{
+    position: absolute;
+    top:0;
+    opacity: 0;
+    transition: opacity 350ms, color 350ms;
+    color: white !important;
+    &.active{
+      opacity: 1;
+    }
+    &.errorTab{
+      &.active{
+        color:orange !important;
+      }
+    }
+  }
+}
+
+.codeTabs{
+  height: 50%;
+}
+
+.responseTabs{
+  background: $almostBlack;
+  height:50%;
+  .tabsController{
+    background: #1d2324;
+    ul{
+      li{
+        &.errorTab{
+          color: orange;
+          &.active{
+            background:orange;
+          }
+        }
+        &.active{
+          color:white;
+          text-align: center;
+          background: $almostBlack;
+        }
+      }
+    }
+  }
+}
+
+.navigation{
+
+  .logoContainer{
+    width:100%;
+    text-align: center;
+    padding:20px;
+    .logo{
+      height:60px;
+      width: 60px;
+      opacity: 0.8;
+      filter: grayscale(100%) brightness(0);
+
+    }
+  }
+  .search{
+    margin:0px 20px 20px 20px;
+    input{
+      color:#f3f3f3 !important;
+      background: transparent !important;
+      border: 0 !important;
+      outline: 0 !important;
+      border-bottom: 1px solid white !important;
+      border-radius: 0px !important;
+
+      &::-webkit-input-placeholder{
+        color:#f9f9f9 !important;
+      }
+      &::-moz-placeholder{
+        color:#f9f9f9 !important;
+      }
+      &:-ms-input-placeholder{
+        color:#f9f9f9 !important;
+      }
+    }
+  }
+  h4{
+    margin-left: 20px !important;
+  }
+  .menuLink{
+    margin-left: -20px;
+    a{
+      padding:5px 0 5px 20px!important;
+    }
+    .activeLink{
+      background: $lightBlue;
+      color:black !important;
+    }
+  }
+  i{
+    color:#f3f3f3 !important;
+  }
+}
+
+
+.menu {
+  background: $darkBlueBlack;
+  position: fixed;
+  height:100%;
+  width: $menuWidth;
+  padding:0px;
+  color: white !important;
+}
+.right{
+  position: fixed;
+  left: $menuWidth;
+  width: $rightWidth;
+  height:100%;
+  .docsDetail {
+    height:100%;
+    float:left;
+    width:60%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: $veryLightBlue;
+  }
+  .codePanel {
+    float: left;
+    height:100%;
+    width:40%;
+    background: $darkBlueBlack;
+    padding:0px;
+    color: lightblue;
+  }
+}
+

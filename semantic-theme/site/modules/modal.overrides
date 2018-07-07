@@ -1,0 +1,66 @@
+@mobileBreakpoint            : 320px;
+@tabletBreakpoint            : 768px;
+@computerBreakpoint          : 992px;
+@largeMonitorBreakpoint      : 1200px;
+@widescreenMonitorBreakpoint : 1920px;
+
+/* Responsive */
+@largestMobileScreen : (@tabletBreakpoint - 1px);
+@largestTabletScreen : (@computerBreakpoint - 1px);
+@largestSmallMonitor : (@largeMonitorBreakpoint - 1px);
+@largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
+
+@tinyMobileWidth: @largestMobileScreen/2;
+@tinyMobileMargin: -@tinyMobileWidth/2;
+@tinyTabletWidth:@tabletBreakpoint/2;
+@tinyTabletMargin: -@tinyTabletWidth/2;
+@tinyComputerWidth : @computerBreakpoint/3;
+@tinyComputerMargin: @tinyComputerWidth/2;
+@tinyLargeMonitorWidth : @largeMonitorBreakpoint/3;
+@tinyLargeMonitorMargin: -@tinyLargeMonitorWidth/3;
+@tinyWidescreenMonitorWidth: @widescreenMonitorBreakpoint/4;
+@tinyWidescreenMonitorMargin:-@tinyWidescreenMonitorWidth/2;
+/*--------------
+      Size
+---------------*/
+/* Tiny Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.tiny.modal {
+    width: @tinyMobileWidth;
+    margin: @tinyMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyTabletWidth;
+    margin: @tinyTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyComputerWidth;
+    margin: @tinyComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyLargeMonitorWidth;
+    margin: @tinyLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyWidescreenMonitorWidth;
+    margin: @tinyWidescreenMonitorMargin;
+  }
+}
+
+.visible.transition {
+  display: unset !important;
+}
+
+.dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: -ms-flexbox;
+  display: flex !important;
+  opacity: 1;
+}

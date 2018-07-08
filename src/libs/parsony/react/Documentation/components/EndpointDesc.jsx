@@ -118,7 +118,7 @@ class EndpointDesc extends Component {
                 <Table.Row key={index}>
                   <Table.Cell>{p.param}</Table.Cell>
                   <Table.Cell>{p.required ? "Y" : "N"}</Table.Cell>
-                  <Table.Cell>{`{${p.validation["is_type"]}}`}</Table.Cell>
+                  <Table.Cell>{p.validation["is_type"] ? `{${p.validation["is_type"]}}` : ''}</Table.Cell>
                   <Table.Cell>
                     {this.renderValidationList(p.validation)}
                   </Table.Cell>
@@ -188,11 +188,17 @@ class EndpointDesc extends Component {
                 break;
               case "in_set":
                 return (
-                  <List.Item key={index}> Value in: {validation[k]} </List.Item>
+                  <List.Item key={index}> Value in: {JSON.stringify(validation[k])} </List.Item>
                 );
                 break;
               case "is_url":
                 return <List.Item key={index}> Valid URL</List.Item>;
+                break;
+              case "is_array":
+                return <List.Item key={index}> Valid Array</List.Item>;
+                break;
+              case "regex":
+                return <List.Item key={index}> Regex Matches: \{validation[k]}\ </List.Item>;
                 break;
               case "is_json":
                 return <List.Item key={index}> Valid JSON</List.Item>;

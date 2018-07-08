@@ -2,5 +2,4 @@
 !dist/index.html
 *.log
 package-lock.json
-dist/
 node_modules

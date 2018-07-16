@@ -11,10 +11,10 @@ class Home extends Component {
   render() {
     return (
       <DefaultLayout state={this.props.state} dispatch={this.props.dispatch}>
-        <Container style={{marginTop: '3em', textAlign:'center'}}>
+        <Container style={{marginTop: '20em', textAlign:'center'}}>
           <img src={logoImg}/>
-          <h1>HELLO, WORLD!</h1>
-          <h4>I am Parsony.</h4>
+          <h1>Hello, world. I'm Parsony.</h1>
+          <h4>Now, make something.</h4>
         </Container>
       </DefaultLayout>
     )

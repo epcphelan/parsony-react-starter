@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Container} from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import DefaultLayout from '../containers/layout/DefaultApp';
-import logoImg from '../../../assets/img/200_x_200_logo.png';
+import logoImg from '../../../assets/img/256_x_256_logo.png';
 class Home extends Component {
   constructor(props) {
     super(props);

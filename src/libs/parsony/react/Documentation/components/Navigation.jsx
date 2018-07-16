@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import NavServices from "./NavServices.jsx";
 import styles from "../styles.scss";
 import PropTypes from "prop-types";
-import logoImg from "../img/60_x_60_logo_50percent.png";
+import logoImg from "../img/60_x_60_logo.png";
 
 class Navigation extends Component {
   constructor(props, context) {

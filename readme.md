@@ -110,7 +110,7 @@ Override styles in ```/semantic-theme```
 Parsony React Web Starter provides a Theming page at ```/theming```. As with
 API documentation, this is a single React Component which should be removed in
 production. It can be moved and used as:
-```js
+```jsx
 import ThemingLayout from'../../libs/parsony/react/Theming';
 
 <ThemingLayout/>

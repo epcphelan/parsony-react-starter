@@ -46,9 +46,11 @@
     "cors": "^2.8.4",
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
+    "markdown-to-jsx": "^6.6.9",
     "node-sass": "^4.9.0",
     "parsony-web": "^1.0.2",
     "prop-types": "^15.6.2",
+    "raw-loader": "^0.5.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-hot-loader": "^4.3.3",
@@ -56,6 +58,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.0.3",
+    "save": "^2.3.2",
     "semantic-ui-react": "^0.79.1"
   }
 }

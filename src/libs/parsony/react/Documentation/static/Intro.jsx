@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import {Input,List, Header} from 'semantic-ui-react';
+import Markdown from 'markdown-to-jsx';
+import intro from './intro.md';
+import styles from'../styles.scss';
 
-const Introduction = (props) =>{
+const Introduction = () =>{
   return(
-    <div style={{padding:'3em'}}>
-      <Header as="h1">Parsony |  API Framework</Header>
-      <Header as="h3">Introduction</Header>
+    <div className={styles.endpointDescription}>
+      <div className={styles.serviceHeader}>INTRODUCTION</div>
+      <div style={{padding:'3em'}} className={styles.markdownBody}>
+        <Markdown options={{ forceBlock: true }}>{intro}</Markdown>
+      </div>
     </div>
   )
 };

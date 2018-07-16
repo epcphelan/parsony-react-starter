@@ -20,6 +20,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(txt|md)$/,
+        use: 'raw-loader'
+      },
+      {
         test: /\.json$/,
         use: ['json-loader']
       },

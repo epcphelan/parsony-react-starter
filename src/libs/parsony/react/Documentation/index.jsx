@@ -14,12 +14,15 @@ class APIDocumentation extends Component {
     super(props);
     this.state = {
       docs: {},
-      error:{}
+      docsErr:{},
+      errors: [],
+      errorsErr:{}
     };
   }
 
   componentDidMount() {
     this.getDocs();
+    this.getErrors();
   }
 
   getDocs = () => {
@@ -42,7 +45,34 @@ class APIDocumentation extends Component {
         });
       } else{
         this.setState({
-          error: data.error
+          docsErr: data.error
+        })
+      }
+    });
+  };
+
+  getErrors = () => {
+    const { endpoint } = this.props;
+    const data = {
+      method: "api.errors",
+      args: {}
+    };
+    fetch(endpoint, {
+      body: JSON.stringify(data),
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then(async errors => {
+      let data = await errors.json();
+      console.log(data);
+      if (data.success) {
+        this.setState({
+          errors: data.data
+        });
+      } else{
+        this.setState({
+          errorsErr: data.error
         })
       }
     });
@@ -64,6 +94,7 @@ class APIDocumentation extends Component {
   };
 
   staticView = content => {
+    const {errors} = this.state;
     return (
       <React.Fragment>
         <div className={styles.right}>
@@ -74,7 +105,7 @@ class APIDocumentation extends Component {
                   return <Introduction />;
                   break;
                 case "errors":
-                  return <Errors />;
+                  return <Errors errors = {errors} />;
                   break;
               }
             })()}

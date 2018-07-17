@@ -140,3 +140,49 @@ Request:
 }
 
 ```
+
+Returns:
+
+```$xslt
+{
+    "success": true,
+    "error": null,
+    "data": {
+        "api_expects": {
+            "method": "post",
+            "service": "user",
+            "json_api": "user.login",
+            "RESTUrl": "/user/login",
+            "desc": "Authenticates user and creates a new session.",
+            "authentication": {
+                "api_key": true,
+                "session_token": false
+            },
+            "params": [
+                {
+                    "param": "username",
+                    "required": true,
+                    "validation": {
+                        "is_type": "string",
+                        "valid_email": true
+                    }
+                },
+                {
+                    "param": "password",
+                    "required": true,
+                    "validation": {
+                        "is_type": "string",
+                        "min_length": "6"
+                    }
+                }
+            ],
+            "returns": {
+                "userId":1234
+            },
+            "errors": [
+                "authentication_failed"
+            ]
+        }
+    }
+}
+```

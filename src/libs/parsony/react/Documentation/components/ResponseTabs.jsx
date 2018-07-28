@@ -59,7 +59,7 @@ class ResponseTabs extends Component {
     return (
       <SuccessResponse
         method={endpoint}
-        response={definition ? definition.response : {}}
+        response={definition ? definition.returns : {}}
       />
     );
   };
